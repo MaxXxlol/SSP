@@ -23,7 +23,7 @@
  */
 function parseDataFromRfc2822(value) {
   return Date.parse(value);
-   throw new Error('Not implemented');
+   //throw new Error('Not implemented');
 }
 
 /**
@@ -39,7 +39,7 @@ function parseDataFromRfc2822(value) {
  */
 function parseDataFromIso8601(value) {
   return Date.parse(value);
-   throw new Error('Not implemented');
+   //throw new Error('Not implemented');
 }
 
 
@@ -58,8 +58,9 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-  return ((date % 4 == 0) && (date % 100 != 0)) || (date % 400 == 0);
-   throw new Error('Not implemented');
+  var year = date.getFullYear();
+  return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+   //throw new Error('Not implemented');
 }
 
 
@@ -83,6 +84,7 @@ function timeSpanToString(startDate, endDate) {
   var m = endDate.getMinutes() - startDate.getMinutes();
   var s = endDate.getSeconds() - startDate.getSeconds();
   var ms = endDate.getMilliseconds() - startDate.getMilliseconds();
+
   return h + ":" + m + ":" + s + "." + ms;
    throw new Error('Not implemented');
 }
@@ -102,7 +104,12 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+  var h = date.getUTCHours();
+  var m = date.getUTCMinutes();
+  var tmp = Math.abs(0.5*(60*h-11*m))%360;
+  var s = tmp > 180 ? 360-tmp : tmp;
+  return s*Math.PI/180;
+    //throw new Error('Not implemented');
 }
 
 

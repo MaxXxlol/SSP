@@ -57,7 +57,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1+value2)/2;
+  return value1/2+value2/2;
     //throw new Error('Not implemented');
 }
 
@@ -119,7 +119,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+  var a = x1*x2+y1*y2;
+  var a1 = Math.sqrt(Math.pow(x1,2) + Math.pow(y1,2));
+  var b1 = Math.sqrt(Math.pow(x2,2) + Math.pow(y2,2));
+  return Math.acos(a/(a1*b1));
+    //throw new Error('Not implemented');
 }
 
 /**
@@ -170,6 +174,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
+  return Math.sqrt(Math.pow(a,2)+Math.pow(b,2)+Math.pow(c,2))
     throw new Error('Not implemented');
 }
 
@@ -191,15 +196,9 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-/*  if(pow==0)return num;
-  else{
-  var x = num%(Math.pow(10,pow));
-  if(x<0.5*(Math.pow(10,pow)){
-    return num-x;
-  }
-  else return num -x + (Math.pow(10,pow));
-}*/
-    throw new Error('Not implemented');
+  var tmp = num/Math.pow(10,pow);
+  return Math.round(tmp)*Math.pow(10,pow);
+    //throw new Error('Not implemented');
 }
 
 /**
@@ -248,7 +247,9 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+  if(+value) return value;
+  return def;
+  //  throw new Error('Not implemented');
 }
 
 module.exports = {

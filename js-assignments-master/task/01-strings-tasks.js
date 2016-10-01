@@ -143,8 +143,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-var str = str.split(value,1);
-return str.join("");
+return str.replace(value,"");
     throw new Error('Not implemented');
 }
 
@@ -192,6 +191,7 @@ return str.toUpperCase();
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
+  return str.split(";");
     throw new Error('Not implemented');
 }
 
@@ -219,7 +219,11 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+   var FirstStr = "┌"+"─".repeat(width-2)+"┐\n";
+   var SecondStr= ("│"+" ".repeat(width-2)+"│\n").repeat(height -2);
+   var LastStr = "└"+"─".repeat(width-2)+"┘\n";
+   return FirstStr + SecondStr + LastStr;
+    //throw new Error('Not implemented');
 }
 
 
@@ -264,11 +268,9 @@ return str1;
  *   isString(new String('test')) => true
  */
 function isString(value) {
-if(value.charAt(0)=="'"){
-  return true;
-}
-
-    throw new Error('Not implemented');
+  if(typeof value === "string" || value instanceof String)return true;
+  else return false;
+    //throw new Error('Not implemented');
 }
 
 
@@ -297,7 +299,12 @@ if(value.charAt(0)=="'"){
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+  var str = [ 'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+    'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+    'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+    'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+return str.indexOf(value);
+    //throw new Error('Not implemented');
 }
 
 
